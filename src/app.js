@@ -7,6 +7,7 @@ const app = express()
 
 app.use(express.static(path.join(__dirname, '../public')))
 
+
 const viewsPath = path.join(__dirname, '../views')
 app.set('views', viewsPath)
 
