@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const hbs = require('hbs')
-
+const bodyParser = require('body-parser')
 const app = express()
 
 
@@ -22,6 +22,14 @@ app.get('', (req, res) => {
         title: 'Weather App',
         name: 'GeoffN'
     })
+})
+
+app.get('/underconstruction', (req, res) => {
+    res.render('underconstruction')
+})
+
+app.get('/about', (req, res) => {
+    res.render('about')
 })
 
 app.listen(3000, () => {
