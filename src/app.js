@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const hbs = require('hbs')
 const bodyParser = require('body-parser')
+const { allowedNodeEnvironmentFlags } = require('process')
 const app = express()
 
 
@@ -19,9 +20,12 @@ app.set('view engine', 'hbs')
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Weather App',
-        name: 'GeoffN'
+
     })
+})
+
+app.get('/play', (req, res) => {
+    res.render('play')
 })
 
 app.get('/underconstruction', (req, res) => {
