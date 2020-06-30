@@ -40,6 +40,10 @@ app.get('/addfoodbank', (req, res) => {
     res.render('addfoodbank')
 })
 
+app.get('/foodbanks', (req, res) => {
+    res.render('foodbanks')
+})
+
 app.listen(3000, () => {
     console.log('Server is up on port 3000')
 })
