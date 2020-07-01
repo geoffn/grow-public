@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/b18c41c7ee.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://bulma.io/css/bulma-docs.min.css?v=202006150846">
+    <link rel="icon" href="/img/weather.png ">
+    <title>Add New Foodbank</title>
+    <style>
+        #map {
+            border: 2px solid #333;
+            width: 80vw;
+            height: 80vh;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Google Maps Scripts-->
+    <script src="./key.js">
+    </script>
+    <script>
+        let map;
+        document.addEventListener("DOMContentLoaded", () => {
+            let s = document.createElement("script");
+            document.head.appendChild(s);
+            s.addEventListener("load", () => {
+                //script has loaded
+                console.log("script has loaded");
+                map = new google.maps.Map(document.getElementById("map"), {
+                    center: {
+                        lat: 48.754780,
+                        lng: -122.471877
+                    },
+                    zoom: 16,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+                marker = new google.maps.Marker({
+                    position: {
+                        lat: 48.754780,
+                        lng: -122.471877
+                    },
+                    map: map,
+                    title: "Bham Food Bank",
+                    label: "Bham FB Label"
+                });
+            });
+            s.src = `https://maps.googleapis.com/maps/api/js?key=${MAPKEY}`;
+        });
+    </script>
+    <!--Start of navbar-->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="">
+                <img src="/img/gfu_small.png">
+                <h1>Grow For Us</h1>
+            </a>
+
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/">
+                    Home
+                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Volunteering
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="/underconstruction">
+                            Events
+                        </a>
+
+                        <a class="navbar-item" href="/underconstruction">
+                            News
+                        </a>
+                    </div>
+                </div>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Foodbanks
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="/foodbanks">
+                            Search
+                        </a>
+                        <a class="navbar-item" href="/addfoodbank">
+                            Resgister
+                        </a>
+                        <a class="navbar-item" href="/underconstruction">
+                            News
+                        </a>
+
+                    </div>
+                </div>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        About
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="/about">
+                            Grow For Us
+                        </a>
+                        <a class="navbar-item" href="/underconstruction">
+                            Contact
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-primary" href="/adduser">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-light" href="/underconstruction">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- End of NavBar-->
+
+
+
+
+    <div class="tile">
+        <div class="tile is-parent is-vertical">
+            <article class="tile is-child notification is-primary">
+                <p class="title">GGGGGrow For Us</p>
+                <p class="subtitle">Register with us and let your community help.
+                </p>
+                <p>
+                    Let people know who you are and how they can help out. Allow folks to register as volunteers
+                    willing
+                    to help gather or collect food for your food bank. You can also link up your feeds or pages so
+                    people can see events or updates.
+                </p>
+
+            </article>
+        </div>
+    </div>
+
+    <!--Beginning of form for new foodbank-->
+    <div class="tile is-vertical is-8">
+        <div class="tile">
+
+            <div class="tile is-parent">
+                <article class="tile is-child notification is-info">
+
+                    <p class="title">Food Banks </p>
+                    <div class=".searchresults" id="searchresults">
+
+                    </div>
+
+                </article>
+            </div>
+            <div class="tile is-parent is-half">
+
+                <div id="map" class="is-half">
+
+                    <p class="title">Food Banks fdafsfasdfsfsfsafsfsssfsfsdfsdfsdfsfsfd</p>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <script src="searchFoodbank.js"></script>
+
+    <div class="tile is-parent">
+
+    </div>
+    <section class="section">
+        {{>footer}}
+
+</body>
+
+</html>
